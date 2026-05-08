@@ -2,17 +2,22 @@
 # OmarchyBootstrapper — post-install setup for Omarchy (Arch Linux + Hyprland)
 # Run on a fresh Omarchy install. Safe to re-run.
 
+# Load credentials from .env if present (takes precedence over defaults below)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+[[ -f "$SCRIPT_DIR/.env" ]] && source "$SCRIPT_DIR/.env"
+
 # ============================================================
 # PRE-CONFIGURATION
 # Fill in these values to skip interactive prompts.
 # Leave empty ("") to be prompted at runtime.
+# Values set in .env override these defaults.
 # ============================================================
 
-MACHINE=""          # "laptop" or "desktop"
+MACHINE="${MACHINE:-}"          # "laptop" or "desktop"
 
-SCHOOL_SSID=""      # School WiFi SSID
-SCHOOL_USER=""      # School WiFi username
-SCHOOL_PASS=""      # School WiFi password (leave empty to always prompt)
+SCHOOL_SSID="${SCHOOL_SSID:-}"  # School WiFi SSID
+SCHOOL_USER="${SCHOOL_USER:-}"  # School WiFi username
+SCHOOL_PASS="${SCHOOL_PASS:-}"  # School WiFi password (leave empty to always prompt)
 
 # Packages to install from official repos (pacman -S)
 PACMAN_PACKAGES=(
