@@ -26,6 +26,8 @@ PACMAN_PACKAGES=(
   # "curl"
   # "ripgrep"
   # "fd"
+  "eog"
+  "gnome-boxes"
 )
 
 # Packages to install from the AUR (via yay)
